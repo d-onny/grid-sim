@@ -1,0 +1,13 @@
+.square{
+    display: inline-flex;
+    width: 100px;
+    height: 100px;
+    background: rgb(0, 183, 255);
+    border-style: solid;
+    border-width: thin;
+}
+
+/* .square button{
+
+
+} */

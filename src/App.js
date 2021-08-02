@@ -7,9 +7,12 @@ class App extends Component{
 
   render() {
     return (
-      <div className="container">
-         <Grid/>
+      <div className="App">
+        <div className="container">
+          <Grid/>
+        </div>
       </div>
+
     )
   }
 
