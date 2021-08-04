@@ -14,15 +14,45 @@ class Grid extends React.Component {
 
 
 
-    renderGrid(column, row) {
+    renderGrid(activeTilesInRow, numberOfRows) {
+        //activeTilesInRow is the lower number of the active rows. In this case, it is 5.
         //TODO - change to map
         let gridMatrix = [];
-        for (let y = row-1; y > -1; y--){
+        let horizontalRow = true;
+        let counter = 0;
+
+        //Loop through the y (how tall the grid is)
+        for (let y = numberOfRows-1; y > -1; y--){
             let rowTiles = [];
-            for (let x = 0; x < column; x++){
-                rowTiles.push(<Tile key={{x}+{y}} x={x} y={y}
-                    />)
+            let emptyFirstIndex;
+            //Determine if it is the horizontal row (car facing horizontal)
+            if (horizontalRow){
+                emptyFirstIndex = true;
             }
+            else{
+                emptyFirstIndex = false;
+            }
+            //Create the empty and active tile cells in a specific row
+            for (let x = 0; x < 2*activeTilesInRow+1; x++){
+                let xCoord = Math.floor(x/2)
+                if(emptyFirstIndex){
+                    //REMOVE Y COORD DISPLAY
+                    rowTiles.push(<Tile typeOfSquare="dead" y={y}/>)
+                }
+                else{
+                    rowTiles.push(<Tile 
+                        typeOfSquare="live" 
+                        key={counter} 
+                        x={xCoord} 
+                        y={y}
+                        />)
+                    counter++;
+
+                }
+                emptyFirstIndex = !emptyFirstIndex
+
+            }
+            horizontalRow = !horizontalRow
             gridMatrix.push(<div>{rowTiles}</div>)
         }
 
@@ -34,8 +64,9 @@ class Grid extends React.Component {
     };
 
     render(){
-        const rowCount = 7;
-        const columnCount = 6;
+        //Change variables
+        const rowCount = 15;
+        const columnCount = 5;
         const grid = this.renderGrid(columnCount, rowCount)
         return (
             <div className="grid-container">

@@ -9,17 +9,18 @@ class Tile extends React.Component{
         let x = this.props.x;
         let y = this.props.y;
         this.state = {
+            isStart:false,
             isSelected:false,
         };
     }
 
     render(){
         return (
-            <div className="square">
-                {this.props.x} {this.props.y}
+            <button className={"square " + this.props.typeOfSquare}>
+                <p>{this.props.x} {this.props.y}</p>
                 {/* <button>
                 </button> */}
-            </div>
+            </button>
     
         );
     }

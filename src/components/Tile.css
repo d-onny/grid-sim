@@ -1,10 +1,25 @@
 .square{
     display: inline-flex;
-    width: 100px;
-    height: 100px;
+    width: 40px;
+    height: 40px;
+    /* overflow: hidden; */
+    /* transition: height 0.66s ease-out; */
     /* background: rgb(0, 183, 255); */
     border-style: solid;
     border-width: thin;
+    text-align: center; 
+    font-size : 10px;
+    
+}
+
+.square.live {
+    /* display:inline-flex; */
+    background-color: white;
+    /* line-height: 65px; */
+}
+
+.square.dead {
+    background-color: black;
 }
 
 /* .square button{
