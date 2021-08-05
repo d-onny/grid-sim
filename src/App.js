@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import VerticalList from './components/VerticalList';
 import Grid from './components/Grid';
 import { Component } from 'react';
 
@@ -9,8 +10,10 @@ class App extends Component{
     return (
       <div className="App">
         <div className="container">
+          <VerticalList/>
           <Grid/>
         </div>
+        
       </div>
 
     )
