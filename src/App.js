@@ -6,12 +6,27 @@ import { Component } from 'react';
 
 class App extends Component{
 
+  constructor(props){
+    super(props);
+
+    this.state = {
+      data: [],
+      steps: []
+    }
+  }
+
+  updateSteps = newSteps => {
+    this.setState({steps:newSteps})
+  }
+
   render() {
     return (
       <div className="App">
         <div className="container">
-          <VerticalList/>
-          <Grid/>
+          {/* <VerticalList 
+            updateParent={this.updateSteps} 
+            steps={this.state.steps}/> */}
+          <Grid steps={this.state.steps}/>
         </div>
         
       </div>

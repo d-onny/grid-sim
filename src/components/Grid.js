@@ -1,6 +1,8 @@
 import React from "react";
 import Tile from "./Tile";
-
+import Border from "./Border";
+import DeadSquare from "./DeadSquare";
+import { Container } from "react-bootstrap";
 class Grid extends React.Component {
 
     constructor(props){
@@ -10,7 +12,6 @@ class Grid extends React.Component {
         //     isSelected:false,
         // };
     }
-
 
 
 
@@ -35,17 +36,37 @@ class Grid extends React.Component {
             //Create the empty and active tile cells in a specific row
             for (let x = 0; x < 2*activeTilesInRow+1; x++){
                 let xCoord = Math.floor(x/2)
+
+
+                if (horizontalRow){
+
+                }
+                
+
                 if(emptyFirstIndex){
                     //REMOVE Y COORD DISPLAY
-                    rowTiles.push(<Tile typeOfSquare="dead" y={y}/>)
+                    if(horizontalRow){
+                        rowTiles.push(<DeadSquare/>)
+
+                    }
+                    else{
+                        rowTiles.push(<Tile id={y}/>)
+                    }
                 }
                 else{
-                    rowTiles.push(<Tile 
-                        typeOfSquare="live" 
-                        key={counter} 
-                        x={xCoord} 
-                        y={y}
-                        />)
+                    if(horizontalRow){
+                        rowTiles.push(<Border 
+                            orientation="horizontal" 
+                            key={counter} 
+                            />)
+                    }
+                    else{
+                        rowTiles.push(<Border 
+                            orientation="vertical" 
+                            key={counter} 
+                            />)
+                    }
+
                     counter++;
 
                 }
@@ -53,7 +74,9 @@ class Grid extends React.Component {
 
             }
             horizontalRow = !horizontalRow
-            gridMatrix.push(<div>{rowTiles}</div>)
+            // gridMatrix.push(<div className="row disp">{rowTiles}</div>)
+            gridMatrix.push(<Container fluid>{rowTiles}</Container>)
+
         }
 
         return(

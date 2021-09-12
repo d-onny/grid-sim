@@ -1,0 +1,23 @@
+.square{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    /* overflow: hidden; */
+    /* transition: height 0.66s ease-out; */
+    background: black;
+    float:left;
+    /* border-style: solid;
+    border-width: thin; */
+    /* text-align: center;  */
+    /* font-size : 10px; */
+    padding-left: 0;
+    padding-right: 0;
+    
+}
+
+/* body {
+  max-width: 2040px;
+  margin: 0 auto;
+  padding: 0 5%;
+  clear: both;
+} */
