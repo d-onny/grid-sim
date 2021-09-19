@@ -67,6 +67,7 @@ class Tile extends React.Component{
         if (choice.index > 0){
             this.setState({currentItem: choice.value})
         }
+
     }
 
     onChange = (event, { newValue }) => {
@@ -93,10 +94,12 @@ class Tile extends React.Component{
 
     render(){
         const { value, suggestions } = this.state;
+        let parentStateMap = {item: this.state.value}
+        this.props.updateGrid(this.props.row, this.props.index, parentStateMap)
 
         // Autosuggest will pass through all these props to the input.
         const inputProps = {
-            placeholder: 'Tree',
+            placeholder: '',
             value,
             onChange: this.onChange
         };

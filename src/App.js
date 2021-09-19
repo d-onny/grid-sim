@@ -3,6 +3,7 @@ import './App.css';
 import VerticalList from './components/VerticalList';
 import Grid from './components/Grid';
 import { Component } from 'react';
+import GenerateCodeButton from './components/GenerateCodeButton';
 
 class App extends Component{
 
@@ -11,12 +12,12 @@ class App extends Component{
 
     this.state = {
       data: [],
-      steps: []
+      grid: []
     }
   }
 
-  updateSteps = newSteps => {
-    this.setState({steps:newSteps})
+  updateGrid = newGrid => {
+    this.setState({grid:newGrid})
   }
 
   render() {
@@ -26,9 +27,13 @@ class App extends Component{
           {/* <VerticalList 
             updateParent={this.updateSteps} 
             steps={this.state.steps}/> */}
-          <Grid steps={this.state.steps}/>
+          <Grid updateGrid={this.updateGrid}/>
         </div>
-        
+        <div className="container">
+          <GenerateCodeButton grid={this.state.grid}/>
+
+        </div>
+      
       </div>
 
     )

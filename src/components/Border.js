@@ -11,7 +11,8 @@ class Border extends React.Component {
         super(props)
         this.state = {
             selected: false,
-            color: this.defaultColor
+            color: this.defaultColor,
+            data: this.props
             // orientation: 
         }
     }
@@ -23,6 +24,9 @@ class Border extends React.Component {
             selected: !prevState.selected,
             color: currentColor
         }))
+        let parentStateMap = {selected: !this.state.selected}
+        // console.log(this.state.selected)
+        this.props.updateGrid(this.props.row, this.props.index, parentStateMap)
     }
 
     changeColor(isSelected){
